@@ -9,9 +9,18 @@ const Constant = {}
 
 
 // Adding the constant variables 
-Constant.app_port = 3000;
-Constant.url_prefix = "/api/v1"
+Constant.APP_PORT = 3000;
+Constant.URL_PREFIX = "/api/v1"
+
+Constant.DB_TABLE = {
+    USER: "users",
+}
+
+Constant.ENDPOINTS = {
+    LOGIN: "login",
+    SIGNUP: "signup"
+}
 
 // export the module 
-module.exports = Constant;
+export default Constant;
 

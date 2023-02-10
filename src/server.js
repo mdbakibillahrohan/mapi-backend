@@ -8,31 +8,33 @@
  */
 
 // Dependencies section
-require('dotenv').config();
-const express = require('express');
-const constant = require('./util/constant');
-const expressListRoutes = require('express-list-routes');
-// const db = require('./config/db');
+import * as dotenv from 'dotenv';
+dotenv.config();
+import express from 'express';
+import db from './config/db.js';
+import AppRouter from './routes/routes.js';
+import Constant from './util/constant.js';
+console.log(process.env.DB_HOST)
+
 
 
 // App Scaffolding
 const app = express();
-app.get(`${constant.url_prefix}/`, (req, res) => {
-    res.json({
-        "code":200,
-        "messages":"Successfully Get"
-    });
-});
-app.get(`${constant.url_prefix}/app`, (req, res) => {
-    res.send('Hello world');
-});
+app.use(AppRouter)
 
+// database initialization 
+// db.connect();
+// db.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+//     if (error) throw error;
+//     console.log('The solution is: ', results[0].solution);
+// });
 
+// db.end()
 // Listing the routes 
-console.log("Method   Path");
-expressListRoutes(app, { spacer: 7, prefix:'/' });
+// console.log("Method   Path");
+// expressListRoutes(app, { spacer: 7, prefix:'/' });
 
 
 // Listening the application on port 
-app.listen(constant.app_port);
-console.warn(`App Running on http://localhost:${constant.app_port}`);
+app.listen(Constant.APP_PORT);
+console.warn(`App Running on http://localhost:${Constant.APP_PORT}`);

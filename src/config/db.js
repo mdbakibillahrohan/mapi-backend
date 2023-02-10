@@ -6,9 +6,8 @@
  */
 
 // Dependencies
-const mysql = require('mysql');
-
-
+import mysql from 'mysql';
+console.log("database host is ", process.env.DB_HOST)
 // scaffolding 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -17,13 +16,13 @@ const db = mysql.createConnection({
     database: process.env.DB_NAME
 })
 
-db.connect();
-db.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-    if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
-});
+// db.connect();
+// db.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+//     if (error) throw error;
+//     console.log('The solution is: ', results[0].solution);
+// });
 
-db.end()
+// db.end()
 
 // exporting the module 
-module.exports = db;
+export default db;

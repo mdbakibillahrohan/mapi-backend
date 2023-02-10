@@ -15,4 +15,4 @@ const Helper = {};
 
 
 // exporting module 
-module.exports = Helper;
+export default Helper;
