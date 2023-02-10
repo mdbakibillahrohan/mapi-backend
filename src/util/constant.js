@@ -7,18 +7,17 @@
 // Scaffolding 
 const Constant = {}
 
-
+const urlPrefix = "/api/v1/";
 // Adding the constant variables 
 Constant.APP_PORT = 3000;
-Constant.URL_PREFIX = "/api/v1"
 
 Constant.DB_TABLE = {
     USER: "users",
 }
 
 Constant.ENDPOINTS = {
-    LOGIN: "login",
-    SIGNUP: "signup"
+    LOGIN: urlPrefix+"login",
+    SIGNUP: urlPrefix+"signup"
 }
 
 // export the module 
